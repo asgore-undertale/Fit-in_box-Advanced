@@ -39,7 +39,7 @@ def BMFont_to_Charmap(fnt_directory):
         ################
         
         #Normal
-        chars_list, x_list, y_list, width_list, height_list, xadvance_list = [], [], [], [], [], []
+        chars_list, x_list, y_list, width_list, height_list, xoffset_list, yoffset_list, xadvance_list = [], [], [], [], [], [], [], []
         for line in font_content.split('\n'):
             info = line.split(',')
             chars_list.append(info[0])
@@ -47,7 +47,9 @@ def BMFont_to_Charmap(fnt_directory):
             y_list.append(info[2])
             width_list.append(info[3])
             height_list.append(info[4])
-            xadvance_list.append(info[5])
+            xoffset_list.append(info[5])
+            yoffset_list.append(info[6])
+            xadvance_list.append(info[7])
         ################
     
     if not x_list: x_list = '0' * len(chars_list)
